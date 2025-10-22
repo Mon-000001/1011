@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCard - Personal Portfolio</title>
+  <title>vCard - Hồ sơ cá nhân</title>
 
   <!--
     - favicon
@@ -48,11 +48,11 @@
         <div class="info-content">
           <h1 class="name" title="Richard hanrick">Richard hanrick</h1>
 
-          <p class="title">Web developer</p>
+          <p class="title">Lập trình viên Web</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+          <span>Hiển thị liên hệ</span>
 
           <ion-icon name="chevron-down"></ion-icon>
         </button>
@@ -74,7 +74,8 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
+              <a href="mailto:richard@example.com" class="contact-link" data-copy-target="email">richard@example.com</a>
+              <button class="copy-btn" type="button" aria-label="Sao chép Email" title="Sao chép"><ion-icon name="copy-outline"></ion-icon></button>
             </div>
 
           </li>
@@ -86,9 +87,10 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
+              <p class="contact-title">Điện thoại</p>
 
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+              <a href="tel:+12133522795" class="contact-link" data-copy-target="phone">+1 (213) 352-2795</a>
+              <button class="copy-btn copy-btn--phone" type="button" aria-label="Sao chép số điện thoại" title="Sao chép"><ion-icon name="copy-outline"></ion-icon></button>
             </div>
 
           </li>
@@ -100,9 +102,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Birthday</p>
+              <p class="contact-title">Ngày sinh</p>
 
-              <time datetime="1982-06-23">June 23, 1982</time>
+              <time datetime="1982-06-23">23 Tháng 6, 1982</time>
             </div>
 
           </li>
@@ -114,9 +116,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Location</p>
+              <p class="contact-title">Địa điểm</p>
 
-              <address>Sacramento, California, USA</address>
+              <address>Sacramento, California, Hoa Kỳ</address>
             </div>
 
           </li>
@@ -125,27 +127,19 @@
 
         <div class="separator"></div>
 
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
+        <!-- Social icons converted to an auto-scrolling logo loop -->
+        <div class="logo-loop social-loop" data-logo-loop data-speed="55" data-direction="left" data-pause="true" aria-label="Liên kết mạng xã hội">
+          <div class="logo-loop__track" data-loop-track>
+            <ul class="logo-loop__list" data-seq>
+              <li class="logo-loop__item"><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li class="logo-loop__item"><a href="#" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a></li>
+              <li class="logo-loop__item"><a href="#" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+              <li class="logo-loop__item"><a href="#" class="social-link" aria-label="Threads (xã hội)"><ion-icon name="at"></ion-icon></a></li>
+              <li class="logo-loop__item"><a href="#" class="social-link" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a></li>
+              <li class="logo-loop__item"><a href="#" class="social-link" aria-label="Telegram"><ion-icon name="paper-plane-outline"></ion-icon></a></li>
+            </ul>
+          </div>
+        </div>
 
       </div>
 
@@ -170,23 +164,21 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link  active" data-nav-link data-nav="about">Giới thiệu</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link data-nav="resume">Sơ yếu lý lịch</button>
+          </li>
+
+
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-nav="blog">Blog</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link data-nav="contact">Liên hệ</button>
           </li>
 
         </ul>
@@ -204,23 +196,30 @@
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">About me</h2>
+          <h2 class="h2 article-title">Về tôi</h2>
         </header>
 
-        <section class="about-text">
-          <p>
-            I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
-            I enjoy
-            turning complex problems into simple, beautiful and intuitive designs.
-          </p>
+        <section class="about-text layout-about" data-about-layout>
+          <div class="about-text__content">
+            <p>
+              Tôi là Giám đốc Sáng tạo và Nhà thiết kế UI/UX đến từ Sydney, Australia, làm việc trong lĩnh vực phát triển web và ấn phẩm.
+              Tôi yêu thích việc biến những vấn đề phức tạp thành các thiết kế đơn giản, đẹp và trực quan.
+            </p>
 
-          <p>
-            My job is to build your website so that it is functional and user-friendly but at the same time attractive.
-            Moreover, I
-            add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
-            across your
-            message and identity in the most creative way. I created web design for many famous brand companies.
-          </p>
+            <p>
+              Công việc của tôi là xây dựng website của bạn hoạt động hiệu quả, thân thiện với người dùng và đồng thời hấp dẫn.
+              Tôi luôn thêm dấu ấn cá nhân để sản phẩm bắt mắt, dễ sử dụng. Mục tiêu của tôi là truyền tải thông điệp và
+              bản sắc của bạn theo cách sáng tạo nhất. Tôi đã thiết kế web cho nhiều thương hiệu nổi tiếng.
+            </p>
+          </div>
+          <figure class="tilted-card-figure" data-tilt-card data-tilt-scale="1.1" data-tilt-rotate="14" data-tilt-caption="Xin chào!" aria-label="Ảnh đại diện 3D">
+            <div class="tilted-card-inner">
+              <img src="./assets/images/my-avatar.png" alt="Ảnh đại diện" class="tilted-card-img" width="300" height="300" loading="lazy">
+              <figcaption class="tilted-card-caption" aria-hidden="true"></figcaption>
+            </div>
+            <div class="tilted-card-mobile-alert">Hiệu ứng xem tốt nhất trên desktop</div>
+           
+          </figure>
         </section>
 
 
@@ -230,7 +229,7 @@
 
         <section class="service">
 
-          <h3 class="h3 service-title">What i'm doing</h3>
+          <h3 class="h3 service-title">Tôi đang làm gì</h3>
 
           <ul class="service-list">
 
@@ -242,10 +241,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web design</h4>
+                <h4 class="h4 service-item-title">Thiết kế web</h4>
 
                 <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
+                  Thiết kế hiện đại, chất lượng cao ở cấp độ chuyên nghiệp.
                 </p>
               </div>
 
@@ -258,10 +257,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
+                <h4 class="h4 service-item-title">Phát triển web</h4>
 
                 <p class="service-item-text">
-                  High-quality development of sites at the professional level.
+                  Phát triển website chất lượng cao ở cấp độ chuyên nghiệp.
                 </p>
               </div>
 
@@ -274,10 +273,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
+                <h4 class="h4 service-item-title">Ứng dụng di động</h4>
 
                 <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
+                  Phát triển ứng dụng iOS và Android chuyên nghiệp.
                 </p>
               </div>
 
@@ -290,10 +289,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
+                <h4 class="h4 service-item-title">Nhiếp ảnh</h4>
 
                 <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
+                  Chụp ảnh chất lượng cao cho mọi thể loại ở cấp độ chuyên nghiệp.
                 </p>
               </div>
 
@@ -310,7 +309,7 @@
 
         <section class="testimonials">
 
-          <h3 class="h3 testimonials-title">Testimonials</h3>
+          <h3 class="h3 testimonials-title">Lời chứng thực</h3>
 
           <ul class="testimonials-list has-scrollbar">
 
@@ -433,7 +432,7 @@
 
               <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
 
-              <time datetime="2021-06-14">14 June, 2021</time>
+              <time datetime="2021-06-14">14 Tháng 6, 2021</time>
 
               <div data-modal-text>
                 <p>
@@ -458,7 +457,7 @@
 
         <section class="clients">
 
-          <h3 class="h3 clients-title">Clients</h3>
+          <h3 class="h3 clients-title">Khách hàng</h3>
 
           <ul class="clients-list has-scrollbar">
 
@@ -515,7 +514,7 @@
       <article class="resume" data-page="resume">
 
         <header>
-          <h2 class="h2 article-title">Resume</h2>
+          <h2 class="h2 article-title">Sơ yếu lý lịch</h2>
         </header>
 
         <section class="timeline">
@@ -525,49 +524,25 @@
               <ion-icon name="book-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Education</h3>
+            <h3 class="h3">Học vấn</h3>
           </div>
 
           <ol class="timeline-list">
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">University school of the arts</h4>
+              <h4 class="h4 timeline-item-title">Trường Cao đẳng Việt Nam - Hàn Quốc</h4>
 
-              <span>2007 — 2008</span>
+              <span>2022 — 2024</span>
 
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">New york academy of art</h4>
-
-              <span>2006 — 2007</span>
-
-              <p class="timeline-text">
-                Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est
-                omnis..
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">High school of art and design</h4>
-
-              <span>2002 — 2004</span>
-
-              <p class="timeline-text">
-                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur
-                magni dolores
-                eos.
-              </p>
+              <div class="edu-meta">
+                <span class="chip"><span class="label">Địa điểm:</span> <span class="value">Thủ Dầu Một, Việt Nam</span></span>
+                <span class="chip"><span class="label">Ngành:</span> <span class="value">điện công nghiệp</span></span>
+                <span class="chip"><span class="label">Hệ:</span> <span class="value">chính quy</span></span>
+                <span class="chip"><span class="label">Xếp loại:</span> <span class="value">gpd.</span></span>
+                <span class="chip"><span class="label">Cốt lõi:</span> <span class="value">An toàn điện, PLC cơ bản, Khí cụ điện, Mạch lực – mạch điều khiển</span></span>
+                <span class="chip"><span class="label">Thực hành/Dự án:</span> <span class="value">Lắp đặt tủ điện điều khiển băng tải; Lập trình PLC Siemens S7-1200; Thiết kế mạch khởi động sao–tam giác</span></span>
+              </div>
 
             </li>
 
@@ -582,50 +557,71 @@
               <ion-icon name="book-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Experience</h3>
+            <h3 class="h3">Kinh nghiệm</h3>
           </div>
 
           <ol class="timeline-list">
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Creative director</h4>
+              <h4 class="h4 timeline-item-title">Công ty ABC</h4>
 
-              <span>2015 — Present</span>
+              <span>2015 — Hiện tại</span>
+
+              <div class="exp-meta">
+                <span class="chip"><span class="label">Vị trí:</span> <span class="value">Giám đốc Sáng tạo</span></span>
+                <span class="chip"><span class="label">Địa điểm:</span> <span class="value">TP. HCM, Việt Nam</span></span>
+              </div>
 
               <p class="timeline-text">
-                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
-                molestias
-                exceptur.
+                <span class="label">Mô tả:</span> <span class="muted">Quản lý đội ngũ thiết kế, định hướng sáng tạo cho chiến dịch, phối hợp phòng kỹ thuật để triển khai giải pháp.</span><br>
               </p>
+
+              <div class="exp-meta exp-reason">
+                <span class="chip"><span class="label">Lý do nghỉ:</span> <span class="value">Đang làm việc</span></span>
+              </div>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Art director</h4>
+              <h4 class="h4 timeline-item-title">Công ty XYZ</h4>
 
               <span>2013 — 2015</span>
 
+              <div class="exp-meta">
+                <span class="chip"><span class="label">Vị trí:</span> <span class="value">Trưởng nhóm Thiết kế</span></span>
+                <span class="chip"><span class="label">Địa điểm:</span> <span class="value">Bình Dương, Việt Nam</span></span>
+              </div>
+
               <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+                <span class="label">Mô tả:</span> <span class="muted">Thiết kế giao diện, quy chuẩn hệ thống nhận diện thương hiệu, kiểm soát chất lượng sản phẩm trước khi bàn giao.</span><br>
               </p>
+
+              <div class="exp-meta exp-reason">
+                <span class="chip"><span class="label">Lý do nghỉ:</span> <span class="value">Tìm kiếm cơ hội phát triển mới</span></span>
+              </div>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Web designer</h4>
+              <h4 class="h4 timeline-item-title">Studio 123</h4>
 
               <span>2010 — 2013</span>
 
+              <div class="exp-meta">
+                <span class="chip"><span class="label">Vị trí:</span> <span class="value">Web Designer</span></span>
+                <span class="chip"><span class="label">Địa điểm:</span> <span class="value">TP. HCM, Việt Nam</span></span>
+              </div>
+
               <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+                <span class="label">Mô tả:</span> <span class="muted">Cắt HTML/CSS, tối ưu giao diện đáp ứng, hợp tác với backend để hoàn thiện tính năng.</span><br>
               </p>
+
+              <div class="exp-meta exp-reason">
+                <span class="chip"><span class="label">Lý do nghỉ:</span> <span class="value">Hết hợp đồng</span></span>
+              </div>
 
             </li>
 
@@ -633,312 +629,8 @@
 
         </section>
 
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Web design</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Graphic design</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Branding</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="50">50%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
 
       </article>
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web design</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Finance</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Orizon</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Manager</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
 
 
       <!--
@@ -965,11 +657,11 @@
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">Thiết kế</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">23/02/2022</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
@@ -993,11 +685,11 @@
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">Thiết kế</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">23/02/2022</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">Best fonts every designer</h3>
@@ -1011,117 +703,9 @@
               </a>
             </li>
 
-            <li class="blog-post-item">
-              <a href="#">
 
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
 
-                <div class="blog-content">
 
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
 
           </ul>
 
@@ -1140,7 +724,7 @@
       <article class="contact" data-page="contact">
 
         <header>
-          <h2 class="h2 article-title">Contact</h2>
+          <h2 class="h2 article-title">Liên hệ</h2>
         </header>
 
         <section class="mapbox" data-mapbox>
@@ -1153,21 +737,21 @@
 
         <section class="contact-form">
 
-          <h3 class="h3 form-title">Contact Form</h3>
+          <h3 class="h3 form-title">Biểu mẫu liên hệ</h3>
 
           <form action="#" class="form" data-form>
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" name="fullname" class="form-input" placeholder="Họ và tên" required data-form-input>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Địa chỉ email" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea name="message" class="form-input" placeholder="Tin nhắn của bạn" required data-form-input></textarea>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
+              <span>Gửi tin nhắn</span>
             </button>
 
           </form>
@@ -1183,6 +767,19 @@
 
 
 
+
+  <!-- Copy Toast -->
+  <div id="copyToast" class="copy-toast" role="status" aria-live="polite" aria-atomic="true">
+    <svg class="copy-toast__wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,256L11.4,240C22.9,224,46,192,69,192C91.4,192,114,224,137,234.7C160,245,183,235,206,213.3C228.6,192,251,160,274,149.3C297.1,139,320,149,343,181.3C365.7,213,389,267,411,282.7C434.3,299,457,277,480,250.7C502.9,224,526,192,549,181.3C571.4,171,594,181,617,208C640,235,663,277,686,256C708.6,235,731,149,754,122.7C777.1,96,800,128,823,165.3C845.7,203,869,245,891,224C914.3,203,937,117,960,112C982.9,107,1006,181,1029,197.3C1051.4,213,1074,171,1097,144C1120,117,1143,107,1166,133.3C1188.6,160,1211,224,1234,218.7C1257.1,213,1280,139,1303,133.3C1325.7,128,1349,192,1371,192C1394.3,192,1417,128,1429,96L1440,64L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z" fill-opacity="1"></path>
+    </svg>
+    <div class="copy-toast__icon" aria-hidden="true"><ion-icon name="checkmark-circle-outline"></ion-icon></div>
+    <div class="copy-toast__text">
+      <p class="copy-toast__title">Đã sao chép</p>
+      <p class="copy-toast__sub"></p>
+    </div>
+    <button class="copy-toast__close" type="button" aria-label="Đóng"><ion-icon name="close-outline"></ion-icon></button>
+  </div>
 
 
   <!--
